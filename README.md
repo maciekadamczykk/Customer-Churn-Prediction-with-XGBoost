@@ -79,7 +79,7 @@ The dataset used for training and evaluation is the Telco Customer Churn dataset
        ```
     - The app provides an intuitive interface where users can input customer details and get real-time churn predictions.
 
-![Streamlit App Screenshot](stss.png)
+![Streamlit App Screenshot](figures/stss.png)
 
 ## Outputs
 - **Processed Data:** `data/processed_data.csv`
@@ -94,4 +94,4 @@ The dataset used for training and evaluation is the Telco Customer Churn dataset
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Author
-maciekadamczykk
+Maciej Adamczyk
