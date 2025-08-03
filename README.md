@@ -2,6 +2,11 @@
 
 ## Overview
 This project aims to predict customer churn using machine learning techniques, specifically the XGBoost algorithm. The workflow includes data cleaning, exploratory data analysis (EDA), model training, evaluation, and visualization of results.
+## Modeling Approach & Dataset
+
+The model was intentionally designed to be more conservative, prioritizing higher recall. This means it aims to identify as many potential churners as possible, even if it results in more false positives. In this business context, it is preferable to proactively flag customers at risk of churning rather than miss individuals who may actually leave. This approach enables targeted retention strategies and minimizes the risk of losing valuable customers.
+
+The dataset used for training and evaluation is the Telco Customer Churn dataset from Kaggle, which provides a comprehensive set of customer attributes and churn labels suitable for predictive modeling.
 
 ## Project Structure
 ```
