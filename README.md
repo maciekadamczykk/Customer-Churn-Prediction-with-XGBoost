@@ -50,32 +50,27 @@ The dataset used for training and evaluation is the Telco Customer Churn dataset
    *(If `requirements.txt` is missing, install packages listed above manually)*
 
 ## Usage
-1. **Data Cleaning**
-   - Run `data_cleaning.py` to preprocess raw data:
-     ```bash
-     python data_cleaning.py
-     ```
-   - Output: `data/processed_data.csv`
 
-2. **Exploratory Data Analysis**
-   - Open and run `EDA.ipynb` in Jupyter Notebook to explore the data and visualize insights.
+1. **Exploratory Data Analysis**
+    - Open and run `EDA.ipynb` in Jupyter Notebook to explore the raw data and visualize insights.
+
+2. **Data Cleaning**
+    - Run `data_cleaning.py` to preprocess raw data:
+       ```bash
+       python data_cleaning.py
+       ```
+    - Output: `data/processed_data.csv`
 
 3. **Model Training & Evaluation**
-   - Run `main.py` to train the XGBoost model and save artifacts:
-     ```bash
-     python main.py
-     ```
-   - Run `evaluate_model.py` to evaluate the model and generate performance metrics/plots:
-     ```bash
-     python evaluate_model.py
-     ```
-   - Visualizations are saved in the `figures/` directory.
-
-4. **Testing**
-   - Run `test.py` to execute tests (if implemented):
-     ```bash
-     python test.py
-     ```
+    - Run `main.py` to train the XGBoost model and save artifacts:
+       ```bash
+       python main.py
+       ```
+    - Run `evaluate_model.py` to evaluate the model and generate performance metrics/plots:
+       ```bash
+       python evaluate_model.py
+       ```
+    - Visualizations are saved in the `figures/` directory.
 
 ## Outputs
 - **Processed Data:** `data/processed_data.csv`
