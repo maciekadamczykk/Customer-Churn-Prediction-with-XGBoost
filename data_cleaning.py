@@ -1,5 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
+import joblib
+
 
 df = pd.read_csv("data/rawdata.csv")
 
