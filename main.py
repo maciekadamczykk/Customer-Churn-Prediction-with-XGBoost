@@ -11,6 +11,8 @@ df = pd.read_csv("data/processed_data.csv")
 X = df.iloc[:,:-1].to_numpy()
 y = df.iloc[:,-1].to_numpy()
 
+scale_pos_weight_value = (y == 0).sum() / (y == 1).sum()
+
 def objective(trial):
     param = {
         'n_estimators': trial.suggest_int('n_estimators', 50, 300),
@@ -20,14 +22,14 @@ def objective(trial):
         'colsample_bytree': trial.suggest_float('colsample_bytree', 0.5, 1.0),
         'gamma': trial.suggest_float('gamma', 0, 5),
         'min_child_weight': trial.suggest_int('min_child_weight', 1, 10),
-        'scale_pos_weight': trial.suggest_float('scale_pos_weight', 1, 10),
+        'scale_pos_weight': trial.suggest_float('scale_pos_weight', max(1, scale_pos_weight_value*0.8), scale_pos_weight_value*1.2),
         'eval_metric': 'logloss',
         'random_state': 42
     }
 
     model = XGBClassifier(**param)
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    scores = cross_val_score(model, X, y, scoring='roc_auc', cv=cv)
+    scores = cross_val_score(model, X, y, scoring='recall', cv=cv)
 
     return scores.mean()
     
