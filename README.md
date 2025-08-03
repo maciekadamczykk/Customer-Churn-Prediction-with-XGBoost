@@ -72,6 +72,15 @@ The dataset used for training and evaluation is the Telco Customer Churn dataset
        ```
     - Visualizations are saved in the `figures/` directory.
 
+4. **Streamlit Web Application**
+    - Launch the interactive web app for churn prediction:
+       ```bash
+       streamlit run app.py
+       ```
+    - The app provides an intuitive interface where users can input customer details and get real-time churn predictions.
+
+![Streamlit App Screenshot](stss.png)
+
 ## Outputs
 - **Processed Data:** `data/processed_data.csv`
 - **Model Artifacts:** `models/final_xgboost_model.joblib`, `models/ordinal_encoder.pkl`
