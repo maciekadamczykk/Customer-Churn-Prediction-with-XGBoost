@@ -6,18 +6,18 @@ import seaborn as sns
 
 from sklearn.metrics import classification_report, confusion_matrix, roc_curve, roc_auc_score, f1_score
 
-# Wczytanie danych
+
 df = pd.read_csv("data/processed_data.csv")
 X = df.iloc[:, :-1].to_numpy()
 y = df.iloc[:, -1].to_numpy()
 
-# Wczytanie modelu
+
 model = joblib.load("models/final_xgboost_model.joblib")
 
-# Predykcje probabilistyczne
+
 y_proba = model.predict_proba(X)[:, 1]
 
-# Znajdowanie najlepszego progu wg F1
+
 fpr, tpr, thresholds = roc_curve(y, y_proba)
 f1_scores = []
 
@@ -31,10 +31,10 @@ best_f1 = f1_scores[best_idx]
 
 print(f"Best threshold by F1: {best_threshold:.3f}, F1: {best_f1:.3f}")
 
-# Predykcje z najlepszym progiem
+
 y_pred_new = (y_proba >= best_threshold).astype(int)
 
-# Raport i macierz pomyłek dla nowego progu
+
 print("\n=== Classification Report (custom threshold) ===")
 print(classification_report(y, y_pred_new))
 
@@ -48,7 +48,7 @@ plt.tight_layout()
 plt.savefig("figures/confusion_matrix_custom_threshold.png")
 plt.close()
 
-# Wykres ROC
+
 roc_auc = roc_auc_score(y, y_proba)
 plt.figure()
 plt.plot(fpr, tpr, label=f"ROC Curve (AUC = {roc_auc:.2f})")
